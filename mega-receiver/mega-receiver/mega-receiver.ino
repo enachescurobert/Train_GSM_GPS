@@ -1,13 +1,13 @@
 #include "LiquidCrystal.h"
-const int rs = 31, en = 30, d4 = 29, d5 = 28, d6 = 27, d7 = 26;
+const int rs = 31, en = 30, d4 = 29, d5 = 28, d6 = 27, d7 = 26; 
+// for Arduino Uno: rs = 13 , en = 12 , d4 = 11 , d5 = 10 , d6 = 9 , d7 = 8 ; 
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
 #include "SIM900.h"
-#include <SoftwareSerial.h> //50,51 for Arduino Mega; 1,2 for Arduino Uno
+#include <SoftwareSerial.h> //50,51 for Arduino Mega; 1,2 for Arduino Uno ( GSN.cpp)
 
 #include "sms.h"
 SMSGSM sms;
-//To change pins for Software Serial, use the two lines in GSM.cpp
 
 //gsm module
 int numdata;
@@ -16,7 +16,7 @@ char smsbuffer[160];
 char n[20];
 
 //Buzzer
-int buzzer = 36;//the pin of the active buzzer
+int buzzer = 36;//pin 4 for Arduino
 
 void setup() 
 {
@@ -49,7 +49,7 @@ void loop()
         
         lcd.clear();
         lcd.setCursor(0, 0);
-        lcd.print(exemplu);
+        lcd.print(exemplu.substring(0,5));
         
         //Buzzer 
          unsigned char i;
