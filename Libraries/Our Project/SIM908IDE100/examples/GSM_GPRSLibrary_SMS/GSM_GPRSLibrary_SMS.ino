@@ -23,8 +23,6 @@ boolean started=false;
 char smsbuffer[160];
 char n[20];
 
- 
-
 void setup() 
 {
   //Serial connection.
@@ -40,8 +38,8 @@ void setup()
   
   if(started){
     //Enable this two lines if you want to send an SMS.
-    if (sms.SendSMS("0736094704", "Mega GSM"))
-      Serial.println("\nSMS sent OK");
+    //if (sms.SendSMS("3471234567", "Arduino SMS"))
+      //Serial.println("\nSMS sent OK");
   }
 
 };

@@ -4,13 +4,12 @@ const int rs = 31, en = 30, d4 = 29, d5 = 28, d6 = 27, d7 = 26;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
 #include "SIM900.h"
-#include <SoftwareSerial.h> //50,51 for Arduino Mega; 1,2 for Arduino Uno ( GSN.cpp)
+#include <SoftwareSerial.h> //50,51 for Arduino Mega; 1,2 for Arduino Uno ( GSM.cpp)
 
 #include "sms.h"
 SMSGSM sms;
 
 //gsm module
-int numdata;
 boolean started=false;
 char smsbuffer[160];
 char n[20];
@@ -41,7 +40,7 @@ void loop()
 {    
       if(started){
         //Serial.println("AT+CMGL=\"ALL\"");
-    //Read if there are unread messages on SIM card and print them.
+    //Read if there are unread messages on SIM card and print them. ("AT+CMGL=\"REC UNREAD\",1")
     if(gsm.readSMS(smsbuffer, 160, n, 20))
     {
       String exemplu = smsbuffer;
